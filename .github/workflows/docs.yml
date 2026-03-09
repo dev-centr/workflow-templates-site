@@ -1,0 +1,51 @@
+# Build Antora docs and deploy to Netlify.
+# Add repo secrets: NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID (from Netlify dashboard).
+name: Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'antora-playbook-docs.yml'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'antora-playbook-docs.yml'
+      - '.github/workflows/docs.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Build Antora docs
+        run: pnpm dlx antora antora-playbook-docs.yml
+
+      - name: Deploy to Netlify
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './build/site'
+          production-branch: main
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy from GitHub Actions'
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

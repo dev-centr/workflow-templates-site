@@ -1,0 +1,14 @@
+# Antora playbook for this repo's docs. Built in CI and on Netlify.
+site:
+  title: Workflow Templates Store
+  url: https://workflow-templates-store-docs.netlify.app
+  start_page: workflow-templates-docs:ROOT:index.adoc
+content:
+  sources:
+    - url: .
+      start_path: docs
+      branches: HEAD
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true

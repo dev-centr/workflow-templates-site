@@ -1,0 +1,5 @@
+= Workflow Templates Store Docs
+
+This site documents the workflow templates store and links to DevCentr where the main docs live.
+
+* Link to main doc: link:https://github.com/dev-centr/devcentr/blob/main/docs/modules/knowledge-base/pages/reference/github-actions-templates-vs-marketplace.adoc[GitHub Actions: Templates vs Marketplace].

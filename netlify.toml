@@ -1,0 +1,7 @@
+# Antora docs site. Build and publish from this repo (or from GitHub Actions).
+[build]
+  command = "pnpm dlx antora antora-playbook-docs.yml"
+  publish = "build/site"
+
+[build.environment]
+  NODE_VERSION = "20"

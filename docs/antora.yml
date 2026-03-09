@@ -1,0 +1,5 @@
+name: workflow-templates-docs
+version: ~
+title: Workflow Templates Store Docs
+nav:
+  - modules/ROOT/nav.adoc

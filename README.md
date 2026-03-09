@@ -11,12 +11,25 @@ A small site to browse **full workflow templates** (files you copy), not GitHub 
 
 Do **not** use "GitHub" in the site domain. Using a trademark in a domain can be legally risky. Use a neutral name (e.g. workflow-templates.example.com).
 
+## Antora docs and Netlify
+
+The repo includes Antora docs in `docs/`. The docs site is built and deployed to Netlify:
+
+- **Netlify (dashboard):** Connect this repo in Netlify; it will use `netlify.toml` (build: `pnpm dlx antora antora-playbook-docs.yml`, publish: `build/site`).
+- **GitHub Actions:** The workflow `.github/workflows/docs.yml` builds Antora on push/PR and deploys to Netlify on `main`. Add repo secrets in GitHub:
+  - `NETLIFY_AUTH_TOKEN` — Personal Access Token from Netlify (Site settings → Build & deploy → Build hooks / API).
+  - `NETLIFY_SITE_ID` — Site ID from Netlify (Site settings → General → Site information).
+
+After the first deploy, set the Netlify site URL in `antora-playbook-docs.yml` (`site.url`) if you use a custom domain.
+
 ## Run locally
 
 ```bash
 pnpm install
 pnpm dev
 ```
+
+Build Antora docs: `pnpm dlx antora antora-playbook-docs.yml` (output in `build/site`).
 
 ## Docs subdomain
 

@@ -8,12 +8,14 @@ on:
     paths:
       - 'docs/**'
       - 'antora-playbook-docs.yml'
+      - 'package.json'
       - '.github/workflows/docs.yml'
   pull_request:
     branches: [main]
     paths:
       - 'docs/**'
       - 'antora-playbook-docs.yml'
+      - 'package.json'
       - '.github/workflows/docs.yml'
 
 jobs:
@@ -30,16 +32,22 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          package_json_file: package.json
 
       - name: Build Antora docs
-        run: pnpm dlx antora antora-playbook-docs.yml
+        id: antora
+        uses: antora-supplemental/antora-build-action@v1
+        with:
+          playbook: antora-playbook-docs.yml
+          output_dir: build/site
+          skip_install: true
+          antora_mode: dlx
 
       - name: Deploy to Netlify
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: './build/site'
+          publish-dir: ${{ steps.antora.outputs.site-path }}
           production-branch: main
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -9,6 +9,7 @@ on:
       - 'docs/**'
       - 'antora-playbook-docs.yml'
       - 'package.json'
+      - 'pnpm-lock.yaml'
       - '.github/workflows/docs.yml'
   pull_request:
     branches: [main]
@@ -16,6 +17,7 @@ on:
       - 'docs/**'
       - 'antora-playbook-docs.yml'
       - 'package.json'
+      - 'pnpm-lock.yaml'
       - '.github/workflows/docs.yml'
 
 jobs:

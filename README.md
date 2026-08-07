@@ -1,18 +1,18 @@
 <a id="readme-top"></a>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
 <div align="center">
-  <h1>Workflow templates store</h1>
-  <p>A small site to browse full workflow templates (files you copy), not GitHub Marketplace actions.</p>
-  <p>
-    <a href="https://github.com/dev-centr/devcentr/blob/main/docs/modules/knowledge-base/pages/reference/github-actions-templates-vs-marketplace.adoc">Explore the docs</a>
-    ·
+  <a href="https://github.com/dev-centr/workflow-templates-site/graphs/contributors"><img src="https://img.shields.io/github/contributors/dev-centr/workflow-templates-site.svg?style=for-the-badge" alt="Contributors"></a>
+  <a href="https://github.com/dev-centr/workflow-templates-site/network/members"><img src="https://img.shields.io/github/forks/dev-centr/workflow-templates-site.svg?style=for-the-badge" alt="Forks"></a>
+  <a href="https://github.com/dev-centr/workflow-templates-site/stargazers"><img src="https://img.shields.io/github/stars/dev-centr/workflow-templates-site.svg?style=for-the-badge" alt="Stargazers"></a>
+  <a href="https://github.com/dev-centr/workflow-templates-site/issues"><img src="https://img.shields.io/github/issues/dev-centr/workflow-templates-site.svg?style=for-the-badge" alt="Issues"></a>
+
+  <h3 align="center">Workflow templates store</h3>
+
+  <p align="center">
+    A small site to browse full workflow templates (files you copy), not GitHub Marketplace actions.<br />
+    <a href="https://github.com/dev-centr/devcentr/blob/main/docs/modules/knowledge-base/pages/reference/github-actions-templates-vs-marketplace.adoc"><strong>Explore the docs ·</strong></a><br />
+    <br />
     <a href="https://github.com/dev-centr/workflow-templates-site/issues">Report Bug</a>
-    ·
+    &middot;
     <a href="https://github.com/dev-centr/workflow-templates-site/issues">Request Feature</a>
   </p>
 </div>
